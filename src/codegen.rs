@@ -44,7 +44,7 @@ pub fn write_obj(module: &Module, output_path: &Path) {
             "generic",
             "",
             inkwell::OptimizationLevel::Default,
-            inkwell::targets::RelocMode::Default,
+            inkwell::targets::RelocMode::PIC,
             inkwell::targets::CodeModel::Default,
         )
         .expect("Failed to create target machine");
