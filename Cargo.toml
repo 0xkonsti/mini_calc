@@ -1,0 +1,11 @@
+[package]
+name = "mini_calc"
+version = "0.1.0-dev"
+edition = "2024"
+license = "MIT"
+rust-version = "1.89.0"
+authors = ["Konstantin Opora <konstantinopora@gmail.com>"]
+
+[dependencies]
+inkwell = { version = "0.6", features = ["llvm18-1"] }
+
