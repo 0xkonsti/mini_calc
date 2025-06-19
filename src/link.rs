@@ -2,8 +2,6 @@ use std::process::Command;
 
 pub enum Linker {
     Clang,
-    Gcc,
-    Ld,
 }
 
 impl Linker {
@@ -20,8 +18,6 @@ impl Linker {
     fn name(&self) -> &str {
         match self {
             Linker::Clang => "clang",
-            Linker::Gcc => "gcc",
-            Linker::Ld => "ld",
         }
     }
 }
