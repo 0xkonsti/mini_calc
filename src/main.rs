@@ -1,3 +1,5 @@
+use std::path::Path;
+
 use inkwell::context::Context;
 
 mod codegen;
@@ -45,10 +47,15 @@ fn main() {
 
     module.print_to_stderr();
 
-    let obj_path = std::path::Path::new("calc_output.o");
+    // Create build directory if it doesn't exist
+    if !Path::new("build").exists() {
+        std::fs::create_dir("build").expect("Failed to create build directory");
+    }
+
+    let obj_path = Path::new("build/calc_output.o");
     codegen::write_obj(&module, obj_path);
 
-    let mut executable_name = "calc_output".to_string();
+    let mut executable_name = "build/calc_output".to_string();
     if cfg!(windows) {
         executable_name.push_str(".exe");
     }
