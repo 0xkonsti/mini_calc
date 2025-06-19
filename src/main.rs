@@ -1,4 +1,4 @@
-use std::path::Path;
+use std::{path::Path, process::Command};
 
 use inkwell::context::Context;
 
@@ -61,4 +61,8 @@ fn main() {
     }
 
     link::Linker::Clang.link_obj(obj_path.to_str().unwrap(), &executable_name);
+
+    println!("-----------------------");
+
+    Command::new(&executable_name).status().expect("Failed to execute linked binary");
 }
